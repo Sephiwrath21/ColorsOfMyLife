@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Me - Colors of My Life</title>
+  <style>
+nav {
+  background-color: #000080;
+  padding: 1em;
+  text-align: center;
+  border-bottom: 4px dashed magenta;
+}
+
+nav a {
+  color: yellow;
+  margin: 0 1em;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#muteBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: hotpink;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-family: 'Comic Sans MS', cursive;
+  color: black;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 black;
+}
+
+    body {
+      margin: 0;
+      background: url("https://www.transparenttextures.com/patterns/stardust.png"), #000;
+      color: #00ffff;
+      font-family: "Comic Sans MS", cursive;
+      background-size: repeat;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2em auto;
+      padding: 1em;
+      border: 5px dotted #ff00ff;
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px #0ff;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffff00;
+      text-shadow: 2px 2px #ff00ff;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff00ff; }
+      to   { text-shadow: 0 0 20px #00ffff; }
+    }
+
+    .marquee {
+      background: #ffcc00;
+      color: black;
+      font-weight: bold;
+      padding: 0.5em;
+      border-bottom: 3px dashed magenta;
+      font-size: 1.2em;
+    }
+
+    .blinking {
+      animation: blinker 1.2s linear infinite;
+    }
+
+    @keyframes blinker {
+      50% { opacity: 0; }
+    }
+
+    img.gif {
+      display: block;
+      margin: 1em auto;
+    }
+
+    p {
+      line-height: 1.6em;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      Welcome to my About Me page! Let's get to know each other!
+    </marquee>
+  </div>
+
+ <nav>
+  <a href="theatre.html"> Theatre</a>
+  <a href="gallery.html"> Gallery</a>
+</nav>
+<div style="text-align: center; margin: 2em;">
+  <a href="home.html" style="
+    background-color: hotpink;
+    color: yellow;
+    font-family: 'Comic Sans MS', cursive;
+    padding: 0.5em 1em;
+    border: 2px dashed #00ffff;
+    text-decoration: none;
+    font-size: 1.1em;
+    box-shadow: 2px 2px 0 black;
+  ">⬅️ Back to Home</a>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" src="media/Vomit Spit Instrumental.mp3" loop muted></audio>
+
+<!-- Music Controls (Top Right Corner) -->
+<button onclick="toggleMute()" id="muteBtn" title="Mute/Unmute">🔇</button>
+
+
+<script>
+  const bg = document.getElementById('bgMusic');
+  const muteBtn = document.getElementById('muteBtn');
+  let started = false;
+
+  function startAudio() {
+    if (!started) {
+      bg.muted = false;
+      bg.play().catch(e => console.warn('Audio blocked:', e));
+      started = true;
+    }
+  }
+
+  function toggleMute() {
+    bg.muted = !bg.muted;
+    muteBtn.textContent = bg.muted ? '🔈' : '🔇';
+  }
+
+  document.addEventListener('click', startAudio, { once: true });
+</script>
+
+
+  <div class="container">
+    <h1 class="blinking">About Me</h1>
+
+    <img class="gif" src="media/com.gif" width="100" alt="retro computer gif">
+
+    <p>
+      Hi there! I'm Alan, a creative soul who makes life colorful through <strong>coding, editing cool stuff, and gaming</strong> into the night.
+    </p>
+
+    <p>
+      I love building <strong>model kits</strong> (yes, I'm a robot maniac!), mixing music, and enjoy musics like it's the 90's. 
+    </p>
+
+    <p>
+      And the best part? I got a pet chicken who keeps things quirky and grounded. His name? <em>Probably cooler than yours.</em>
+    </p>
+
+    <p>
+      This website is my pixel-powered playground, a place where passion, nostalgia, and creativity collide.
+    </p>
+
+    <img class="png" src="media/callmeifyougetlostid.png" width="200" alt="muh id" style="display: block; margin: 2em auto;" />
+
+    <p>
+        This is a simple ID about me.
+    </p>
+
+    <p>
+      Want to say hi? <a href="mailto:alankerkailoon66@gmail.com">Drop me a virtual postcard!</a>
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Colors of My Life | Built with Hopes and Dreams (Visual Code too)
+  </footer>
+
+</body>
+</html>

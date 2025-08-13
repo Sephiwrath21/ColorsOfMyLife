@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Theatre — Colors of My Life</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #00ffcc;
+      background-image: url("media/space.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Marquee header */
+    .marquee {
+      width: 100%;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 0.5em 0;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0px 3px 5px black;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+    @keyframes scroll-left { 0% { transform: translateX(0%);} 100% { transform: translateX(-100%);} }
+
+    /* Nav matches home.html */
+    nav {
+      background-color: #000080;
+      padding: 1em;
+      text-align: center;
+      border-bottom: 4px dashed magenta;
+    }
+    nav a {
+      color: yellow;
+      margin: 0 1em;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Page content */
+    .content {
+      max-width: 960px;
+      margin: 2em auto;
+      padding: 1em;
+      background: rgba(0,0,0,0.6);
+      border: 5px dotted #ff00ff;
+      box-shadow: 0 0 15px #0ff;
+      text-align: center;
+    }
+    .content h1 {
+      font-size: 3em;
+      color: #ff00ff;
+      text-shadow: 2px 2px #000;
+      animation: glow 2s infinite alternate;
+      margin-top: 0;
+    }
+    @keyframes glow { from { text-shadow: 0 0 5px #ff00ff; } to { text-shadow: 0 0 20px #ffff00; } }
+
+    /* Retro video frame */
+    .video-frame {
+      margin: 1.5em auto;
+      padding: 0.75em;
+      background: #000;
+      border: 4px dashed #00ffff;
+      box-shadow: 0 0 12px #ff00ff;
+      max-width: 900px;
+    }
+    .video-frame video, .video-frame iframe {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #000080;
+      color: #ffff00;
+      font-size: 0.9em;
+      border-top: 4px dashed lime;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee">
+    <span> Welcome to the Theatre, grab your snacks, hit play, and enjoy the show!</span>
+  </div>
+
+  <!-- Nav (same style/links as home) -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About Me</a>
+  </nav>
+
+  <div class="content">
+    <h1>Theatre</h1>
+
+    <!-- Local video player -->
+    <div class="video-frame">
+      <video id="myVideo" controls poster="media/thumbnail.png">
+        <!-- Replace with your actual files; keeping multiple formats increases browser support -->
+        <source src="media/theatre.mp4" type="video/mp4" />
+        <source src="media/theatre.webm" type="video/webm" />
+        <source src="media/theatre.ogv" type="video/ogg" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+
+  </div>
+
+  <footer>
+    &copy; 2025 Colors of My Life | Built with Hopes and Dreams (and Visual code)
+  </footer>
+
+</body>
+</html>

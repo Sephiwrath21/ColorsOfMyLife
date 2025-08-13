@@ -1,0 +1,213 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colors of My Life</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #00ffcc;
+      background-image: url("media/space.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    nav {
+      background-color: #000080;
+      padding: 1em;
+      text-align: center;
+      border-bottom: 4px dashed magenta;
+    }
+
+    nav a {
+      color: yellow;
+      margin: 0 1em;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .content {
+      text-align: center;
+      margin: 2em;
+    }
+
+    .content h1 {
+      font-size: 3em;
+      color: #ff00ff;
+      text-shadow: 2px 2px #000;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ff00ff;
+      }
+      to {
+        text-shadow: 0 0 20px #ffff00;
+      }
+    }
+
+    .media-controls {
+      text-align: center;
+      margin: 3em 0;
+    }
+
+    .media-controls button, #greetLink {
+      background: linear-gradient(to bottom, #ffcc00, #ff6699);
+      border: 2px outset #fff;
+      cursor: pointer;
+      color: black;
+      font-size: 1.2em;
+      padding: 0.5em 1em;
+      font-weight: bold;
+      font-family: 'Comic Sans MS', cursive;
+      box-shadow: 2px 2px 0px #000;
+      transition: transform 0.1s ease-in-out;
+    }
+
+    .media-controls button:hover {
+      transform: scale(1.05);
+    }
+
+    #muteBtn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      background: hotpink;
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 0.5em;
+      font-size: 1.2em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      background-color: #000080;
+      color: #ffff00;
+      font-size: 0.9em;
+      border-top: 4px dashed lime;
+    }
+
+    .marquee {
+      width: 100%;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1em;
+      padding: 0.5em 0;
+      overflow: hidden;
+      white-space: nowrap;
+      box-shadow: 0px 3px 5px black;
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Side welcome GIFs */
+.side-gif {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  z-index: 900;
+  opacity: 0.85;
+  pointer-events: none; /* ensures GIF doesn't block clicks */
+}
+
+.side-gif.left {
+  left: 5px;
+}
+
+.side-gif.right {
+  right: 5px;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Side welcome GIFs -->
+<img src="media/welcome.gif" alt="Welcome Left" class="side-gif left">
+<img src="media/welcome.gif" alt="Welcome Right" class="side-gif right">
+
+
+  <div class="marquee">
+    <span> Turn up your speakers & enjoy the vibes as I introduce you to the Colors of My Life </span>
+  </div>
+
+  <nav>
+    <a href="movie.html">Theatre</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html"> About Me</a>
+  </nav>
+
+  <button onclick="toggleMute()" id="muteBtn" title="Mute/Unmute">❚❚</button>  
+
+  <div class="content">
+    <h1>Colors of My Life</h1>
+    <img src="media/hello-there.gif" alt="Hello there"> 
+  <p>
+    Welcome to my little corner of the web! Life gets a whole lot brighter when I'm knee-deep in code, vibing in tons of albums, and giving my creative energy a place to shine. 
+    Between building model kits, battling bosses in video games, and chilling with my pet chicken (yes, he's a star 🐔✨), I'm all about mixing fun, focus, and a bit of weird. 
+    This site is my digital playground, enjoy the ride!
+  </p>
+</div>
+
+  </div>
+
+  <div class="media-controls">
+    <div id="greetSection">
+      <button id="greetLink" onclick="playGreeting()"> Click me for the greeting announcement</button>
+    </div>
+  </div>
+
+  <!-- Audio elements -->
+  <audio id="bgMusic" src="media/Tyler The Creator - CMIYGL Type Beat -  HOT SAND.mp3" loop muted></audio>
+  <audio id="greeting" src="media/welcome.wav"></audio>
+
+  <footer>
+    &copy; 2025 Colors of My Life | Built with Hopes and Dreams (and Visual code)
+  </footer>
+
+  <script>
+    const bg = document.getElementById('bgMusic');
+    const muteBtn = document.getElementById('muteBtn');
+    let started = false;
+
+    function startAudio() {
+      if (!started) {
+        bg.muted = false;
+        bg.play().catch(e => console.warn('Audio blocked:', e));
+        started = true;
+      }
+    }
+
+    function toggleMute() {
+      bg.muted = !bg.muted;
+      muteBtn.textContent = bg.muted ? '▶' : '❚❚';
+    }
+
+    function playGreeting() {
+      document.getElementById('greeting').play();
+    }
+
+    document.addEventListener('click', startAudio, { once: true });
+  </script>
+</body>
+</html>
